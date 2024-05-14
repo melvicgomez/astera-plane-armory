@@ -12,6 +12,8 @@ import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 import { APP_GUARD } from '@nestjs/core';
 import { CompaniesModule } from './companies/companies.module';
+import { ContactsModule } from './contacts/contacts.module';
+import { ContactsService } from './contacts/contacts.service';
 
 @Module({
   imports: [
@@ -20,16 +22,18 @@ import { CompaniesModule } from './companies/companies.module';
     AuthModule,
     UsersModule,
     CompaniesModule,
+    ContactsModule,
   ],
   controllers: [AppController, UsersController, AuthController],
   providers: [
-    AppService,
-    UsersService,
-    AuthService,
     {
       provide: APP_GUARD,
       useClass: AuthGuard,
     },
+    AppService,
+    UsersService,
+    AuthService,
+    ContactsService,
   ],
 })
 export class AppModule {}

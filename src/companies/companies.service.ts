@@ -32,6 +32,15 @@ export class CompaniesService {
     });
   }
 
+  findOneWithContacts(company_id: number) {
+    return this.companiesRepository.findOne({
+      where: {
+        company_id,
+      },
+      relations: ['contact_persons'],
+    });
+  }
+
   update(id: number, updateCompanyDto: UpdateCompanyDto) {
     return this.companiesRepository.update(id, updateCompanyDto);
   }

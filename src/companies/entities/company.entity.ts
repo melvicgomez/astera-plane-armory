@@ -1,8 +1,15 @@
-import { Column, PrimaryGeneratedColumn, Entity } from 'typeorm';
+import { Contact } from 'src/contacts/entities/contact.entity';
+import {
+  Column,
+  PrimaryGeneratedColumn,
+  Entity,
+  OneToMany,
+  JoinColumn,
+} from 'typeorm';
 
 @Entity({ name: 't_companies' })
 export class Company {
-  @PrimaryGeneratedColumn('increment')
+  @PrimaryGeneratedColumn()
   company_id: number;
 
   @Column({
@@ -55,4 +62,8 @@ export class Company {
 
   @Column()
   updated_at: string;
+
+  @OneToMany(() => Contact, (contact) => contact.company)
+  @JoinColumn({ name: 'company_id' })
+  contact_persons: Contact[];
 }

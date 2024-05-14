@@ -6,16 +6,10 @@ export class User {
   @PrimaryGeneratedColumn('uuid')
   user_id: string;
 
-  @Column({
-    type: 'character varying',
-    length: 100,
-  })
+  @Column()
   first_name: string;
 
-  @Column({
-    type: 'character varying',
-    length: 100,
-  })
+  @Column()
   last_name: string;
 
   @Column({

@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { CompaniesService } from './companies.service';
 import { CreateCompanyDto } from './dto/create-company.dto';
@@ -26,9 +27,18 @@ export class CompaniesController {
   }
 
   @Get(':company_id')
-  async findOne(@Param('company_id') company_id: number) {
-    const company = await this.companiesService.findOne(company_id);
-    return company;
+  async findOne(
+    @Param('company_id') company_id: number,
+    @Query('includeContact') includeContact: boolean,
+  ) {
+    if (includeContact) {
+      const companyWithContacts =
+        await this.companiesService.findOneWithContacts(company_id);
+      return companyWithContacts;
+    } else {
+      const company = await this.companiesService.findOne(company_id);
+      return company;
+    }
   }
 
   @Patch(':company_id')
