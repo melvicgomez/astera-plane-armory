@@ -32,29 +32,19 @@ export class Company {
   })
   province: string;
 
-  @Column({
-    type: 'text',
-  })
+  @Column({ type: 'text' })
   postal_code: string;
 
-  @Column({
-    type: 'text',
-  })
+  @Column({ type: 'text' })
   barangay: string;
 
-  @Column({
-    type: 'text',
-  })
+  @Column({ type: 'text' })
   street_name_1: string;
 
-  @Column({
-    type: 'text',
-  })
+  @Column({ type: 'text' })
   street_name_2: string;
 
-  @Column({
-    type: 'character varying',
-  })
+  @Column({ type: 'character varying' })
   logo_slug: string;
 
   @Column()

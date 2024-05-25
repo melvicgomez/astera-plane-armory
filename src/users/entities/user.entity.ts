@@ -1,5 +1,5 @@
+import { UserRole } from 'src/models/user';
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
-import { UserRole } from 'src/users/models/user';
 
 @Entity({ name: 't_users' })
 export class User {

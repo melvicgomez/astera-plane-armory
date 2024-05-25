@@ -1,5 +1,5 @@
 import { IsEnum, IsString } from 'class-validator';
-import { UserRole } from 'src/users/models/user';
+import { UserRole } from 'src/models/user';
 
 export class CreateUserDto {
   first_name: string;

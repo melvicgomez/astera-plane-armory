@@ -1,4 +1,4 @@
-import { ContactType, UserContactDetail } from '../models/contact';
+import { ContactType, UserContactDetail } from 'src/models/contact';
 
 export class CreateContactDto {
   company_id: number;

@@ -1,0 +1,12 @@
+[x] t_companies
+[x] t_contact_person_details
+[x] t_contact_persons
+[] t_inquiries
+[] t_project_images
+[] t_project_proximities
+[x] t_projects
+[] t_properties
+[] t_properties_contact_persons
+[] t_property_images
+[x] t_users
+[] t_user_projects

@@ -9,7 +9,7 @@ import { Request } from 'express';
 
 import { SetMetadata } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { UserRole } from 'src/users/models/user';
+import { UserRole } from 'src/models/user';
 
 export const IS_PUBLIC_KEY = 'isPublic';
 export const Public = () => SetMetadata(IS_PUBLIC_KEY, true);

@@ -14,6 +14,7 @@ import { APP_GUARD } from '@nestjs/core';
 import { CompaniesModule } from './companies/companies.module';
 import { ContactsModule } from './contacts/contacts.module';
 import { ContactsService } from './contacts/contacts.service';
+import { ProjectsModule } from './projects/projects.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { ContactsService } from './contacts/contacts.service';
     UsersModule,
     CompaniesModule,
     ContactsModule,
+    ProjectsModule,
   ],
   controllers: [AppController, UsersController, AuthController],
   providers: [
