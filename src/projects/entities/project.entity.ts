@@ -13,6 +13,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { ProjectImage } from './project_image.entity';
+import { Property } from 'src/properties/entities/property.entity';
 
 @Entity({
   name: 't_projects',
@@ -110,30 +111,6 @@ export class Project {
   @Column()
   elevator_count: number;
 
-  // @Column()
-  // min_lot_area: number;
-
-  // @Column()
-  // max_lot_area: number;
-
-  // @Column()
-  // min_cusa: number;
-
-  // @Column()
-  // max_cusa: number;
-
-  // @Column()
-  // min_rental_rate: number;
-
-  // @Column()
-  // max_rental_rate: number;
-
-  // @Column()
-  // min_leasable_area: number;
-
-  // @Column()
-  // max_leasable_area: number;
-
   @Column()
   longitude: number;
 
@@ -145,4 +122,10 @@ export class Project {
     name: 'project_id',
   })
   images: ProjectImage[];
+
+  @OneToMany(() => Property, (property) => property.project)
+  @JoinColumn({
+    name: 'project_id',
+  })
+  properties: Property[];
 }

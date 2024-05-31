@@ -34,16 +34,31 @@ export class ProjectsController {
   }
 
   @Get()
-  findAll(@Query('includeImage') includeImage: boolean) {
-    return this.projectsService.findAll(includeImage);
+  findAll(
+    @Query('includeImage') includeImage: boolean,
+    @Query('includeProperties') includeProperties: boolean,
+    @Query('includePropertyImage') includePropertyImage: boolean,
+  ) {
+    return this.projectsService.findAll(
+      includeImage,
+      includeProperties,
+      includePropertyImage,
+    );
   }
 
   @Get(':project_id')
   findOne(
     @Param('project_id') project_id: string,
     @Query('includeImage') includeImage: boolean,
+    @Query('includeProperties') includeProperties: boolean,
+    @Query('includePropertyImage') includePropertyImage: boolean,
   ) {
-    return this.projectsService.findOne(project_id, includeImage);
+    return this.projectsService.findOne(
+      project_id,
+      includeImage,
+      includeProperties,
+      includePropertyImage,
+    );
   }
 
   @Patch(':project_id')

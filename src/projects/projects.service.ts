@@ -24,7 +24,7 @@ export class ProjectsService {
     });
   }
 
-  async addProjectImages(
+  addProjectImages(
     projectId: string,
     userId: string,
     files: MulterFile[],
@@ -41,28 +41,39 @@ export class ProjectsService {
     return this.projectImagesRepository.save(filesToSave);
   }
 
-  findAll(includeImage: boolean = false) {
-    if (includeImage) {
-      return this.projectsRepository.find({
-        relations: ['images'],
-      });
-    }
-    return this.projectsRepository.find();
+  findAll(
+    includeImage: boolean = false,
+    includeProperties: boolean = false,
+    includePropertyImage: boolean = false,
+  ) {
+    const relations = [];
+
+    if (includeImage) relations.push('images');
+    if (includeProperties) relations.push('properties');
+    if (includePropertyImage) relations.push('properties.images');
+
+    return this.projectsRepository.find({
+      relations,
+    });
   }
 
-  findOne(project_id: string, includeImage: boolean = false) {
-    if (includeImage) {
-      return this.projectsRepository.findOne({
-        where: {
-          project_id,
-        },
-        relations: ['images'],
-      });
-    }
+  findOne(
+    project_id: string,
+    includeImage: boolean = false,
+    includeProperties: boolean = false,
+    includePropertyImage: boolean = false,
+  ) {
+    const relations = [];
+
+    if (includeImage) relations.push('images');
+    if (includeProperties) relations.push('properties');
+    if (includePropertyImage) relations.push('properties.images');
+
     return this.projectsRepository.findOne({
       where: {
         project_id,
       },
+      relations,
     });
   }
 

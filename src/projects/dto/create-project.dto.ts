@@ -29,16 +29,6 @@ export class CreateProjectDto {
   floor_count: number;
   elevator_count: number;
 
-  // Pipe check that min is higher than max
-  // min_lot_area: number;
-  // max_lot_area: number;
-  // min_cusa: number;
-  // max_cusa: number;
-  // min_rental_rate: number;
-  // max_rental_rate: number;
-  // min_leasable_area: number;
-  // max_leasable_area: number;
-
   //
   longitude: number;
   latitude: number;

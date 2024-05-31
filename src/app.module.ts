@@ -15,6 +15,7 @@ import { CompaniesModule } from './companies/companies.module';
 import { ContactsModule } from './contacts/contacts.module';
 import { ContactsService } from './contacts/contacts.service';
 import { ProjectsModule } from './projects/projects.module';
+import { PropertiesModule } from './properties/properties.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { ProjectsModule } from './projects/projects.module';
     CompaniesModule,
     ContactsModule,
     ProjectsModule,
+    PropertiesModule,
   ],
   controllers: [AppController, UsersController, AuthController],
   providers: [
